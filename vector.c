@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 08:02:52 by user42            #+#    #+#             */
-/*   Updated: 2021/09/22 15:30:56 by user42           ###   ########.fr       */
+/*   Updated: 2021/09/22 18:02:55 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ t_vec	*new_vec(float x, float y)
 	return (vec);
 }
 
-t_vec	*vec_init(t_vec *vec)
+t_vec	*vec_init(t_vec *vec, float x, float y)
 {
+	vec->x = x;
+	vec->y = y;
 	vec->sum = sum;
 	vec->sub = sub;
 	vec->mult = mult;
