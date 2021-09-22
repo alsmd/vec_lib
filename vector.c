@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 08:02:52 by user42            #+#    #+#             */
-/*   Updated: 2021/09/22 11:33:40 by user42           ###   ########.fr       */
+/*   Updated: 2021/09/22 15:30:56 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,56 +18,70 @@ t_vec	*new_vec(float x, float y)
 	t_vec *vec;
 
 	vec = (t_vec *) malloc(sizeof(t_vec));
-	vec->value[0] = x;
-	vec->value[1] = y;
+	vec->x = x;
+	vec->y = y;
 	vec->sum = sum;
 	vec->sub = sub;
 	vec->mult = mult;
 	vec->div = _div;
 	vec->scale = scale;
 	vec->normalize = normalize;
-	magnitude(vec);
+	vec->mag = magnitude;
+	return (vec);
+}
 
+t_vec	*vec_init(t_vec *vec)
+{
+	vec->sum = sum;
+	vec->sub = sub;
+	vec->mult = mult;
+	vec->div = _div;
+	vec->scale = scale;
+	vec->normalize = normalize;
+	vec->mag = magnitude;
 	return (vec);
 }
 
 void	scale(t_vec *v1, float scale)
 {
-	v1->value[0] *= scale;
-	v1->value[1] *= scale;
+	v1->x *= scale;
+	v1->y *= scale;
 }
 
 void	sum(t_vec *v1, t_vec *v2)
 {
-	v1->value[0] += v2->value[0];
-	v1->value[1] +=  v2->value[1];
+	v1->x += v2->x;
+	v1->y += v2->y;
 }
 
 void	sub(t_vec *v1, t_vec *v2)
 {
-	v1->value[0] -= v2-> value[0];
-	v1->value[1] -=  v2->value[1];
+	v1->x -= v2->x;
+	v1->y -= v2->y;
 }
 
 void	mult(t_vec *v1, t_vec *v2)
 {
-	v1->value[0] *=  v2->value[0];
-	v1->value[1] *=  v2->value[1];
+	v1->x *= v2->x;
+	v1->y *= v2->y;
 }
 
 void	_div(t_vec *v1, t_vec *v2)
 {
-	v1->value[0] /=  v2->value[0];
-	v1->value[1] /=  v2->value[1];
+	v1->x /=  v2->x;
+	v1->y /=  v2->y;
 }
 
 static void	magnitude(t_vec *v)
 {
-	v->magnitude = sqrt((v->value[0] * v->value[0]) + (v->value[1] * v->value[1]));
+	v->magnitude = sqrt((v->x * v->x) + (v->y * v->y));
 }
 
 void	normalize(t_vec *v)
 {
-	v->value[0] /= v->magnitude;
-	v->value[1] /= v->magnitude;
+	if (v->magnitude > 0)
+	{
+		v->x /= v->magnitude;
+		v->y /= v->magnitude;
+	}
 }

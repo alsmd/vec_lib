@@ -4,7 +4,7 @@ OBJS = $(SRCS:.c=.o)
 
 NAME = libvec.a
 
-CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		= -g -Wall -Werror -Wextra
 
 CC = clang
 

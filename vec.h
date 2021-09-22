@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 08:25:49 by user42            #+#    #+#             */
-/*   Updated: 2021/09/22 11:33:21 by user42           ###   ########.fr       */
+/*   Updated: 2021/09/22 15:31:14 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 
 typedef struct s_vec
 {
-	float	value[2];
+	float	x;
+	float	y;
 	float	magnitude;
 	void	(*sum)(struct s_vec *, struct s_vec *);
 	void	(*sub)(struct s_vec *, struct s_vec *);
@@ -25,6 +26,7 @@ typedef struct s_vec
 	void	(*div)(struct s_vec *, struct s_vec *);
 	void	(*scale)(struct s_vec *, float);
 	void	(*normalize)(struct s_vec *);
+	void	(*mag)(struct s_vec *);
 } t_vec;
 
 
