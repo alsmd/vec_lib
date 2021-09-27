@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 08:02:52 by user42            #+#    #+#             */
-/*   Updated: 2021/09/26 08:41:24 by user42           ###   ########.fr       */
+/*   Updated: 2021/09/26 17:48:57 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,5 +153,12 @@ void	vec_rotatey(t_vec *vec, float	angle)
 
 float	vec_dot_product(t_vec *vec1, t_vec *vec2)
 {
-	return  (vec1->x * vec2->x + vec1->y * vec2->y);
+	return  (vec1->x * vec2->x + vec1->y * vec2->y + vec1->z * vec2->z);
+}
+
+void	change_value(t_vec *vec, float x, float y, float z)
+{
+	vec->x = x;
+	vec->y = y;
+	vec->z = z;
 }

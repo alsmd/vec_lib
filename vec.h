@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 08:25:49 by user42            #+#    #+#             */
-/*   Updated: 2021/09/25 14:09:45 by user42           ###   ########.fr       */
+/*   Updated: 2021/09/26 17:49:09 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 
 typedef struct s_vec
 {
-	float	x;
-	float	y;
-	float	z;
-	float	magnitude;
+	float			x;
+	float			y;
+	float			z;
+	float			magnitude;
+	struct s_vec	*next;
 } t_vec;
 
 
@@ -38,5 +39,6 @@ void	vec_rotatex(t_vec *vec, float	angle);
 void	vec_rotatey(t_vec *vec, float	angle);
 void	vec_rotatez(t_vec *vec, float	angle);
 float	vec_dot_product(t_vec *vec1, t_vec *vec2);
+void	change_value(t_vec *vec, float x, float y, float z);
 
 #endif
